@@ -5,6 +5,10 @@
  */
 package Modele;
 
+import jdbcv2018.Connexion;
+
+import java.sql.DriverManager;
+
 /**
  *
  * @author Thomas
@@ -21,5 +25,7 @@ public class Eleve extends Personne{
     public Eleve (int id, String nom, String prenom, Classe classe){
         super (id, nom, prenom);
         this.classe=classe;
+    //Eleve a rentrer dans la base de données
+
     }
 }

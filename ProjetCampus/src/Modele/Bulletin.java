@@ -13,4 +13,10 @@ public class Bulletin {
     int ID;
     Trimestre trimestre;
     Eleve eleve;
+
+    public Bulletin (int id, Trimestre trimestre, Eleve eleve){
+        this.trimestre=trimestre;
+        this.eleve=eleve;
+        ID=id;
+    }
 }

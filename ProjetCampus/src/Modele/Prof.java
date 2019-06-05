@@ -35,29 +35,58 @@ public class Prof extends Personne{
     
 
     }
-    public void ajouterEleve()
+    public void ajouterEleve(Classe cp, Classe ce1, Classe ce2, Classe cm1, Classe cm2)
     {
-        int idEleve;
-        int idClasse;
-        String nom_eleve;
-        String prenom_eleve;
-        
-        System.out.println("Choisissez l'identifiant du nouvel élève");
-        idEleve = scan.nextInt();
-        System.out.println("Quel est le nom de cet élève");
-        nom_eleve = scan.nextLine();
-        System.out.println("Quel est le prénom de cet élève");
-        prenom_eleve = scan.nextLine();
-        System.out.println("Associez lui une classe (par identifiant)");
-        idClasse = scan.nextInt();
+        Scanner scan = new Scanner(System.in);
+        Scanner sc= new Scanner(System.in);
 
-        Classe classe = new Classe(idClasse, "CP3", "ESILV", 2019);
-        Eleve eleve = new Eleve(idEleve, nom_eleve, prenom_eleve,classe);
-                
-        if (idEleve==eleve.ID)
-        {
-            eleve.classe.ID=idClasse;
+
+//AJOUTER UN ELEVE PAR SCAN
+        System.out.println("Mettez 1000 pour id eleve :");
+        int ideleve = scan.nextInt();
+
+        System.out.println("Quel est le nom de cet élève");
+        String nom_eleve = sc.nextLine();
+
+        System.out.println("Quel est le prénom de cet élève");
+        String prenom_eleve = sc.nextLine();
+
+        System.out.println("Quel est le niveau de l'élève ? (CP=1, CE1=2, CE2=3,CM1=4,CM2=5)");
+        int niveau = scan.nextInt();
+        String nom_classe="";
+        Eleve eleve_test = null;
+
+        if (niveau==1){
+            eleve_test=new Eleve(ideleve,nom_eleve,prenom_eleve,cp);
+            nom_classe=cp.getnom();
         }
-        System.out.println("L'eleve n" + eleve.ID + "est dans la classe n"+eleve.classe.ID);
+        else if (niveau==2){
+            eleve_test=new Eleve(ideleve,nom_eleve,prenom_eleve,ce1);
+            nom_classe=ce1.getnom();
+        }
+        else if (niveau==3){
+            eleve_test=new Eleve(ideleve,nom_eleve,prenom_eleve,ce2);
+            nom_classe=ce2.getnom();
+        }
+        else if (niveau==4){
+            eleve_test=new Eleve(ideleve,nom_eleve,prenom_eleve,cm1);
+            nom_classe=cm1.getnom();
+        }
+        else if(niveau==5){
+            eleve_test=new Eleve(ideleve,nom_eleve,prenom_eleve,cm2);
+            nom_classe=cm2.getnom();
+        }
+
+
+        if (eleve_test == null){
+            System.out.println("l'élève n'a pas été créé");
+
+        }
+        else{
+            System.out.println("L'élève "+prenom_eleve+" "+nom_eleve+" a été crée. Elle a été mise dans la classe : "+nom_classe);
+        }
+
+        //AJOUT DES INFORMATIONS DANS LA BDD
+
     }
 }
