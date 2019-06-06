@@ -12,8 +12,8 @@ package Modele;
 public class Classe {
     int ID;
     String nom;
-    int ecole;
-    int anneeScolaire;
+    int IdEcole;
+    int IdAnneeScolaire;
     
     
     public Classe()
@@ -21,15 +21,35 @@ public class Classe {
 
 }
 
-    public Classe(int ID, String nom,int ecole, int anneeScolaire) {
+    public Classe(int ID, String nom,int IdEcole, int IdAnneeScolaire) {
         this.ID = ID;
         this.nom = nom;
-        this.ecole = ecole;
-        this.anneeScolaire = anneeScolaire;
+        this.IdEcole = IdEcole;
+        this.IdAnneeScolaire = IdAnneeScolaire;
+    }
+    
+    public Classe (int ID)
+    {
+        this.ID=ID;
+
     }
      public String getnom (){
         return nom;
      }
+
+    public int getID() {
+return this.ID;
+    }
+    
+    public int getIdEcole()
+    {
+        return this.IdEcole;
+    }
+    
+    public int getIdAnneeScolaire()
+    {
+        return this.IdAnneeScolaire;
+    }
 }
 
 

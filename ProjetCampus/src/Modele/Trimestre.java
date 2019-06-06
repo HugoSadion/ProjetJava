@@ -11,6 +11,7 @@ package Modele;
  */
 public class Trimestre {
     int ID;
+    int numero;
     String debut;
     String fin;
     int anneeScolaire;
@@ -19,9 +20,11 @@ public class Trimestre {
 
     }
 
-    public Trimestre (String debut, String fin, int anneesco){
+    public Trimestre (int id, int numero, String debut, String fin, int anneeScolaire){
+        this.ID=id;
+        this.numero=numero;
         this.debut=debut;
         this.fin=fin;
-        anneeScolaire=anneesco;
+        this.anneeScolaire=anneeScolaire;
     }
 }

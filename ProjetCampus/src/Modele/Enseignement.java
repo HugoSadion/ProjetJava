@@ -11,18 +11,22 @@ package Modele;
  */
 public class Enseignement {
     int ID;
-    Prof prof;
-    Classe classe;
+    int IdClasse;
+    int IdDiscipline;
+    int IdPersonne;
 
     public Enseignement() {
     }
 
-    public Enseignement(Prof prof, Classe classe){
+    public Enseignement(int ID, int IdClasse, int IdDiscipline, int IdPersonne){
 
-        this.prof=prof;
-        this.classe=classe;
+        this.ID = ID;
+        this.IdClasse=IdClasse;
+        this.IdDiscipline=IdDiscipline;
+        this.IdPersonne=IdPersonne;
 
     }
+
     
     
 }

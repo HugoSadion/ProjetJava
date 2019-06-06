@@ -11,12 +11,29 @@ package Modele;
  */
 public class Bulletin {
     int ID;
-    Trimestre trimestre;
-    Eleve eleve;
+    int IDTrimestre;
+    String appreciation;
+  
 
-    public Bulletin (int id, Trimestre trimestre, Eleve eleve){
-        this.trimestre=trimestre;
-        this.eleve=eleve;
-        ID=id;
+    public Bulletin (int id,int idTrimestre, String appreciation){
+        this.ID=id;
+        this.IDTrimestre = idTrimestre;
+        this.appreciation = appreciation;
+    }
+
+    public Bulletin() {
+    }
+    
+    public Bulletin(int id)
+    {
+        this.ID = id;
+    }
+
+    public String getAppreciation() {
+        return this.appreciation;
+    }
+
+    public int getId() {
+    return this.ID;   
     }
 }

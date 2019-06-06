@@ -10,17 +10,19 @@ package Modele;
  * @author Thomas
  */
 public class Personne {
-    protected int ID;
+     int ID;
     String nom; 
     String prenom;
+    String type;
 
     public Personne() {
     }
 
-    public Personne(int ID, String nom, String prenom) {
+    public Personne(int ID, String nom, String prenom, String type) {
         this.ID = ID;
         this.nom = nom;
         this.prenom = prenom;
+        this.type=type;
     }
 
     public int getID() {
