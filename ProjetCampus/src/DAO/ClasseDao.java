@@ -23,12 +23,8 @@ public class ClasseDao extends Dao<Classe>{
     {
         try
         {
-            String query = "INSERT INTO classe ('Nom', 'IDEcole', 'IDAnnee') VALUES (?, ?, ?) ";
-            PreparedStatement pstmt = (PreparedStatement) connect.remplirChampsRequete(query);
-            pstmt.setObject(1, obj.getnom());
-            pstmt.setObject(2, obj.getIdEcole());
-            pstmt.setObject(3, obj.getIdAnneeScolaire());
-            pstmt.executeUpdate(query);
+            String query = "INSERT INTO classe (Nom, IDEcole, IDAnneeScolaire) VALUES ('"+obj.getnom()+"',"+obj.getIdEcole() +","+obj.getIdAnneeScolaire()+ ")";
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch(SQLException ex)
@@ -45,8 +41,7 @@ public class ClasseDao extends Dao<Classe>{
         try
         {
             String query = "DELETE FROM classe WHERE ID ="+obj.getID();
-            PreparedStatement pstmt = (PreparedStatement) connect.remplirChampsRequete(query);
-            pstmt.executeUpdate(query);
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch(SQLException ex)

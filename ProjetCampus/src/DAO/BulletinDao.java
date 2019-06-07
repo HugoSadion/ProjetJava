@@ -25,10 +25,8 @@ public class BulletinDao extends Dao<Bulletin> {
         
         try
         {
-            String query = "INSERT INTO bulletin ('Appreciation') VALUES (?)";
-            PreparedStatement pstmt = (PreparedStatement) connect.remplirChampsRequete(query);
-            pstmt.setObject(1, obj.getAppreciation());
-            pstmt.executeUpdate(query);
+            String query = "INSERT INTO bulletin (IDTrimestre, Appreciation, Note_generale, ecole) VALUES ("+obj.getIDTrimestre()+",'"+obj.getAppreciation()+"', "+obj.getNoteGenerale()+", '"+obj.getEcole()+"')";
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch(SQLException ex)
@@ -38,15 +36,13 @@ public class BulletinDao extends Dao<Bulletin> {
         }
     }
 
-
     public boolean delete(Bulletin obj) 
     {
         
         try
         {
             String query = "DELETE FROM bulletin WHERE ID =" + obj.getId();
-            PreparedStatement pstmt = (PreparedStatement) connect.remplirChampsRequete(query);
-            pstmt.executeUpdate();
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch(SQLException ex)

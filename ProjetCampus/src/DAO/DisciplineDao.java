@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.sql.*;
 import Modele.Connexion;
 import Modele.Discipline;
 
@@ -21,7 +22,17 @@ public class DisciplineDao extends Dao<Discipline>{
     
      public boolean create(Discipline obj) 
     {
-        return false;
+        try
+        {
+            String query = "INSERT INTO discipline ('Nom') VALUES ('"+obj.getNom()+"')";
+            this.getConnexion().executeUpdate(query);
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            return false;
+
+        }
     }
 
     public boolean delete(Discipline obj) 

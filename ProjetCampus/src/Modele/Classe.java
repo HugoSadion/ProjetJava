@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Modele;
+import DAO.ClasseDao;
+import java.util.*;
 
 /**
  *
@@ -21,8 +23,7 @@ public class Classe {
 
 }
 
-    public Classe(int ID, String nom,int IdEcole, int IdAnneeScolaire) {
-        this.ID = ID;
+    public Classe(String nom,int IdEcole, int IdAnneeScolaire) {
         this.nom = nom;
         this.IdEcole = IdEcole;
         this.IdAnneeScolaire = IdAnneeScolaire;
@@ -49,6 +50,15 @@ return this.ID;
     public int getIdAnneeScolaire()
     {
         return this.IdAnneeScolaire;
+    }
+    
+    public void ajoutClasse(Connexion link)
+    {
+        
+        ClasseDao test = new ClasseDao(link);
+        
+        test.create(this);
+        System.out.println("Classe importée dans la BDD");
     }
 }
 

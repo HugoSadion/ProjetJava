@@ -7,8 +7,6 @@ package DAO;
 
 import Modele.Connexion;
 import Modele.Evaluation;
-import com.mysql.jdbc.PreparedStatement;
-
 import java.sql.SQLException;
 
 /**
@@ -24,12 +22,26 @@ public class EvaluationDao extends Dao<Evaluation>{
     
      public boolean create(Evaluation obj) 
     {
-
         try
         {
-            String query = "INSERT INTO evaluation (IDMatiere,Note,idEleve) VALUES ("+obj.getIdDetailBulletin()+","+obj.getNote()+","+obj.getIdEleve()+")";
+            String query = "INSERT INTO evaluation (IDMatiere, Note, idEleve) VALUES ("+obj.getIdMatiere()+","+obj.getNote()+","+obj.getIdEleve()+")";
             this.getConnexion().executeUpdate(query);
-            //pstmt.executeUpdate(query);
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+           return false; 
+        }
+        
+    }
+
+    public boolean delete(Evaluation obj) 
+    {
+        try
+        {
+            String query = "DELETE FROM evaluation WHERE ID =" +obj.getId();
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch(SQLException ex)
@@ -37,11 +49,7 @@ public class EvaluationDao extends Dao<Evaluation>{
             ex.printStackTrace();
             return false;
         }
-    }
-
-    public boolean delete(Evaluation obj) 
-    {
-        return false;
+        
     }
    
     public boolean update(Evaluation obj) 

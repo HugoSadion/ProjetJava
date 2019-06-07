@@ -20,4 +20,16 @@ public class Inscription {
         this.IdClasse = IdClasse;
         this.IdPersonne = IdPersonne;
     }
+
+    public int getId() {
+        return this.ID;
+    }
+
+    public int getIdClasse() {
+        return this.IdClasse;
+    }
+
+    public int getIdPersonne() {
+        return this.IdPersonne;
+    }
 }

@@ -18,4 +18,12 @@ public class Ecole {
         this.ID=id;
         this.nom=nom;
     }
+
+    public String getNom() {
+        return this.nom;
+    }
+
+    public int getId() {
+        return this.ID;
+    }
 }

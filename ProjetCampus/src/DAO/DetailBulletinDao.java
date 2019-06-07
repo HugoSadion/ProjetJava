@@ -8,7 +8,6 @@ package DAO;
 import Modele.Connexion;
 import Modele.DetailBulletin;
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  *
@@ -25,8 +24,7 @@ public class DetailBulletinDao extends Dao<DetailBulletin>{
     {
         try
         {
-            String query = "INSERT INTO detailbulletin (IdBulletin, IDEleve, IDEnseignement, Appreciation_matiere, Note_matiere) VALUES ("+obj.getIdBulletin()+","+obj.getIdEleve()+","+obj.getIdEnseignement()+",'"+obj.getAppreciation_matiere()+"',"+obj.getNote_matiere()+")";
-            System.out.println(query);
+            String query = "INSERT INTO detailbulletin (IDEleve, IDEnseignement, Appreciation_matiere, Note_matiere, IdBulletin) VALUES ("+obj.getIdEleve()+","+obj.getIdEnseignement()+",'"+obj.getAppreciationMatiere()+"',"+obj.getNoteMatiere()+","+obj.getIdBulletin()+")";
             this.getConnexion().executeUpdate(query);
             return true;
         }
@@ -43,8 +41,7 @@ public class DetailBulletinDao extends Dao<DetailBulletin>{
         try
         {
             String query = "DELETE FROM detailbulletin WHERE ID ="+obj.getID();
-            PreparedStatement pstms = (PreparedStatement) connect.remplirChampsRequete(query);
-            pstms.executeUpdate(query);
+            this.getConnexion().executeUpdate(query);
             return true;
         }
         catch (SQLException ex) 
@@ -63,36 +60,5 @@ public class DetailBulletinDao extends Dao<DetailBulletin>{
     public DetailBulletin find(int id) {
     return null;
   }
-
-
-
-    public ArrayList<Integer> select (DetailBulletin det_but){
-
-        ArrayList<Integer> notes = new ArrayList<Integer>();
-        try
-        {
-            ArrayList<String> result = new ArrayList<String >();
-            result = connect.remplirChampsRequete("SELECT Note FROM evaluation WHERE (idEleve='"+det_but.getIdEleve()+"') AND (IDMatiere='"+det_but.getIdEnseignement()+"')");
-            for (int i=0; i<result.size(); i++){
-            String res= result.get(i);
-            int oo=Integer.parseInt(res);
-            System.out.println(oo);
-            notes.add(oo);
-
-        }
-
-        }
-        catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }
-
-
-        return notes;
-
-        //enseign= new Enseignement( Integer.parseInt(res[0]) , Integer.parseInt(res[1]),Integer.parseInt(res[2]),Integer.parseInt(res[3]));
-
-
-
-    }
+    
 }

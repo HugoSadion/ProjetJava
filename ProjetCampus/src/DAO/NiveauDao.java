@@ -7,6 +7,7 @@ package DAO;
 
 import Modele.Connexion;
 import Modele.Niveau;
+import java.sql.SQLException;
 
 /**
  *
@@ -21,12 +22,34 @@ public class NiveauDao extends Dao<Niveau>{
     
      public boolean create(Niveau obj) 
     {
-        return false;
+        try
+        {
+            String query = "INSERT INTO niveau (Nom) VALUES ("+obj.getNom()+")";
+            this.getConnexion().executeUpdate(query);
+            return true;
+        }
+         catch(SQLException ex)
+         {
+             ex.printStackTrace();
+             return false;
+         }
+        
     }
 
     public boolean delete(Niveau obj) 
     {
-        return false;
+        try
+        {
+        String query = "DELETE FROM niveau WHERE ID ="+obj.getID();
+        this.getConnexion().executeUpdate(query);
+        return true; 
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+             return false;
+        }
+       
     }
    
     public boolean update(Niveau obj) 

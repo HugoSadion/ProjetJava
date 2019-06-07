@@ -20,12 +20,35 @@ public class EnseignementDao extends Dao<Enseignement>{
     
      public boolean create(Enseignement obj) 
     {
-        return false;
+        try
+        {
+            String query = "INSERT INTO enseignement (IDClasse, IDDiscipline, IDPersonne) VALUES ("+obj.getIdCLasse()+","+obj.getIdDiscipline()+","+obj.getIdPersonne()+")";
+            this.getConnexion().executeUpdate(query);
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+            return false;
+        }
+        
     }
 
     public boolean delete(Enseignement obj) 
     {
-        return false;
+        try
+        {
+           String query = "DELETE FROM enseignement WHERE ID ="+ obj.getId();
+           this.getConnexion().executeUpdate(query);
+           return true;
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+            return false;
+        }
+        
+        
     }
    
     public boolean update(Enseignement obj) 

@@ -18,4 +18,12 @@ public class Niveau {
         this.ID = id;
         this.nom = nom;
     }
+
+    public int getID() {
+        return this.ID;
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
 }

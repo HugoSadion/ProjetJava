@@ -27,4 +27,25 @@ public class Trimestre {
         this.fin=fin;
         this.anneeScolaire=anneeScolaire;
     }
+
+    public int getAnneeScolaire() {
+        return anneeScolaire;
+    }
+
+    public String getDebut() {
+        return debut;
+    }
+
+    public String getFin() {
+        return fin;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+    
 }

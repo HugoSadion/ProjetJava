@@ -14,6 +14,19 @@ public class Enseignement {
     int IdClasse;
     int IdDiscipline;
     int IdPersonne;
+    
+    public int getIdCLasse()
+    {
+        return this.IdClasse;
+    }
+    public int getIdDiscipline()
+    {
+        return this.IdDiscipline;
+    }
+    public int getIdPersonne()
+    {
+        return this.IdPersonne;
+    }
 
     public Enseignement() {
     }
@@ -27,6 +40,9 @@ public class Enseignement {
 
     }
 
+    public int getId() {
+            return this.ID;
+    }
 
     
     

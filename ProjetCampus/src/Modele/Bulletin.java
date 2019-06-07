@@ -12,14 +12,17 @@ package Modele;
 public class Bulletin {
     int ID;
     int IDTrimestre;
-    int IDEleve;
     String appreciation;
+    int NoteGenerale;
+    String ecole;
   
 
-    public Bulletin (int id,int idTrimestre, String appreciation){
+    public Bulletin (int id,int idTrimestre, String appreciation, int noteGenrale, String ecole){
         this.ID=id;
         this.IDTrimestre = idTrimestre;
         this.appreciation = appreciation;
+        this.NoteGenerale=noteGenrale;
+        this.ecole=ecole;
     }
 
     public Bulletin() {
@@ -37,4 +40,18 @@ public class Bulletin {
     public int getId() {
     return this.ID;   
     }
+
+    public String getEcole() {
+        return ecole;
+    }
+
+    public int getNoteGenerale() {
+        return NoteGenerale;
+    }
+
+    public int getIDTrimestre() {
+        return IDTrimestre;
+    }
+    
+    
 }

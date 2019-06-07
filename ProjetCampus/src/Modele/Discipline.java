@@ -20,6 +20,10 @@ public class Discipline {
         this.id = id;
         this.nom = nom;
     }
+
+    public String getNom() {
+        return this.nom;
+    }
     
     
     

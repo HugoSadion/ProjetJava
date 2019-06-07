@@ -7,8 +7,7 @@ package DAO;
 
 import Modele.Connexion;
 import Modele.Trimestre;
-
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 /**
  *
@@ -23,7 +22,18 @@ public class TrimestreDao extends Dao<Trimestre>{
     
      public boolean create(Trimestre obj) 
     {
-        return false;
+        try
+        {
+            String query = "INSERT INTO trimstre (Numero, Debut, Fin, AnneeScolaire) VALUES ("+obj.getNumero()+",'"+obj.getDebut()+"','"+obj.getFin()+"',"+obj.getAnneeScolaire()+")";
+            this.getConnexion().executeUpdate(query);
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+          return false;  
+        }
+        
     }
 
     public boolean delete(Trimestre obj) 
@@ -39,12 +49,5 @@ public class TrimestreDao extends Dao<Trimestre>{
     public Trimestre find(int id) {
     return null;
   }
-
-  public ArrayList<Integer> select (Trimestre objet){
-        ArrayList <Integer> array = new ArrayList<Integer>();
-        array.add(1);
-        return array;
-    }
-
-
+    
 }
