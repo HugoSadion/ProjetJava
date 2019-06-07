@@ -8,6 +8,8 @@ package DAO;
 import Modele.Connexion;
 import Modele.Trimestre;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Thomas
@@ -37,5 +39,12 @@ public class TrimestreDao extends Dao<Trimestre>{
     public Trimestre find(int id) {
     return null;
   }
-    
+
+  public ArrayList<Integer> select (Trimestre objet){
+        ArrayList <Integer> array = new ArrayList<Integer>();
+        array.add(1);
+        return array;
+    }
+
+
 }

@@ -12,6 +12,7 @@ package Modele;
 public class Bulletin {
     int ID;
     int IDTrimestre;
+    int IDEleve;
     String appreciation;
   
 

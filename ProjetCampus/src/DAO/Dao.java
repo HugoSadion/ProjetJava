@@ -5,6 +5,9 @@
  */
 package DAO;
 import Modele.*;
+import java.util.ArrayList;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -27,8 +30,14 @@ public abstract class Dao<T> {
     
     public abstract boolean update (T objet);
 
+    //abstract ArrayList<Integer> select (T objet);
+
     
     public abstract T find (int id);
+
+    public Connexion getConnexion(){
+        return this.connect;
+    }
     
     
             

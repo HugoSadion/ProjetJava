@@ -28,7 +28,7 @@ public class BulletinDao extends Dao<Bulletin> {
             String query = "INSERT INTO bulletin ('Appreciation') VALUES (?)";
             PreparedStatement pstmt = (PreparedStatement) connect.remplirChampsRequete(query);
             pstmt.setObject(1, obj.getAppreciation());
-            pstmt.executeUpdate();
+            pstmt.executeUpdate(query);
             return true;
         }
         catch(SQLException ex)
@@ -37,6 +37,7 @@ public class BulletinDao extends Dao<Bulletin> {
         return false;
         }
     }
+
 
     public boolean delete(Bulletin obj) 
     {
