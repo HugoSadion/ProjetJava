@@ -78,8 +78,31 @@ public class Main {
             }
             else if (reponse_prof==3){
                 bulletin.generer_bulletin(bulletin_dao,det_bul_dao, nouvelleCo);
+            }
+        }
+        //type utilisateur élève
+        else if (type_utilisateur==2){
 
-        }}
+            System.out.println("1 - Voir mes notes par matière");
+            System.out.println("2 - Voir mon bulletin");
+            System.out.println("3 - Reporting");
+
+            int reponse_eleve=scan.nextInt();
+
+            if (reponse_eleve==1){
+                eval.affiche_notes(nouvelleCo);
+            }
+
+            else if (reponse_eleve==2){
+                bulletin.afficher_bulletin(nouvelleCo);
+            }
+            else if (reponse_eleve==3){
+
+            }
+
+        }
+
+
         else
         { System.out.println("Pas de bon numero gros");}
 

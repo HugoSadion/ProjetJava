@@ -79,4 +79,23 @@ public class Evaluation {
             eval_test.create(new_eval);
             System.out.println("La note a bien été prise en compte");
     }
+
+    public void affiche_notes (Connexion connect) {
+
+        System.out.println("Quel est l'identifiant élève ? ");
+        int id_eleve = scan.nextInt();
+
+        System.out.println("Matière évaluez vous ? 1=Francais, 2=Geographie, 3=Histoire, 4=Maths, 5=Anglais");
+        int matiere = scan.nextInt();
+
+        System.out.println("De quel trimestre voulez vous les notes ? (1=Premier Trimestre, 2=Second Semestre, 3=Troisième Trimestre");
+        int trimestre = scan.nextInt();
+
+        System.out.println("De quelle année ?");
+        int annee = scan.nextInt();
+
+        EvaluationDao evaluationDao = new EvaluationDao(connect);
+        evaluationDao.recup_notes_matiere(id_eleve, matiere, trimestre, annee);
+    }
+
 }

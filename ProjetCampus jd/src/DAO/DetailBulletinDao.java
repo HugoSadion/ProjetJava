@@ -134,12 +134,12 @@ public class DetailBulletinDao extends Dao<DetailBulletin>{
     }
 
 
-    public String recup_appreciation (int id_eleve, int id_matiere, int trimestre, int annee){
+    public String recup_appreciation (int id_enseignement, int id_bulletin){
 
         try
         {
 
-            String query = "SELECT Appreciation FROM evaluation WHERE IdEleve="+id_eleve+" AND IDMatiere="+id_matiere+" AND Trimestre="+trimestre+" AND Annee="+annee;
+            String query = "SELECT Appreciation_matiere FROM detailbulletin WHERE  IDEnseignement="+id_enseignement+" AND IdBulletin="+id_bulletin;
             String result2 = connect.remplirChampsRequete(query).get(0).toString();
             return result2;
         }
